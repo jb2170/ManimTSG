@@ -1,5 +1,6 @@
 from __future__ import annotations
 from typing import Callable
+import functools
 import copy
 
 from manim import MathTex
@@ -17,6 +18,7 @@ def tex_string_group(func) -> Callable[..., TexStringGroup]: # is this typing co
     # For finding the relevant subgroup when calling TexStringGroup.find_by_label
     group_label = f"{class_name}.{func_name.removeprefix(func_prefix_must_be)}"
 
+    @functools.wraps(func)
     def helper(instance, *args, **kwargs):
         elts = func(instance, *args, **kwargs)
 

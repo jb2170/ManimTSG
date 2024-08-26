@@ -1,12 +1,7 @@
 from __future__ import annotations
 
 from ManimTSG import *
-
-def subscript(*elts: str | TexStringGroup) -> TexStringGroup:
-    return TexStringGroup("_{", *elts, "}", labels = ["subscript"])
-
-def superscript(*elts: str | TexStringGroup) -> TexStringGroup:
-    return TexStringGroup("^{", *elts, "}", labels = ["superscript"])
+from ManimTSG.Common import subscript, superscript, interspersed
 
 class VectorSpace:
     def __init__(
